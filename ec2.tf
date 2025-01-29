@@ -1,16 +1,24 @@
-module "ec2_instance" {
-  source  = "terraform-aws-modules/ec2-instance/aws"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
+  }
 
-  name = "single-instance"
+  required_version = ">= 1.2.0"
+}
 
-  instance_type          = "t2.micro"
-  key_name               = "mumbai"
-  monitoring             = true
-  vpc_security_group_ids = ["sg-018aae70820fdea09]
-  subnet_id              = "subnet-09d10e9f3765e2e5c"
+provider "aws" {
+  region  = "us-west-2"
+  profile = "jack.roper"
+}
+
+resource "aws_instance" "example_server" {
+  ami           = "ami-04e914639d0cca79a"
+  instance_type = "t2.micro"
 
   tags = {
-    Terraform   = "true"
-    Environment = "dev"
+    Name = "JacksBlogExample"
   }
 }
