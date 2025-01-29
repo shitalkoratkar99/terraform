@@ -4,10 +4,10 @@ module "ec2_instance" {
   name = "single-instance"
 
   instance_type          = "t2.micro"
-  key_name               = "user1"
+  key_name               = "mumbai"
   monitoring             = true
-  vpc_security_group_ids = ["sg-12345678"]
-  subnet_id              = "subnet-eddcdzz4"
+  vpc_security_group_ids = ["sg-018aae70820fdea09]
+  subnet_id              = "subnet-09d10e9f3765e2e5c"
 
   tags = {
     Terraform   = "true"
